@@ -1,22 +1,30 @@
+const { 
+  CTRL_C,
+  MOVE_UP_KEY,
+  MOVE_LEFT_KEY,
+  MOVE_DOWN_KEY,
+  MOVE_RIGHT_KEY,
+  HELLO_KEY,
+  BYE_KEY } = require("./constants");
+
 // Stores the active TCP connection object.
 let connection;
 
 const handleUserInput = function (data) {
-  // your code here
-  if (data === '\u0003') {
+  if (data === CTRL_C) {
     process.exit();
   }
-  if (data === 'w') {
+  if (data === MOVE_UP_KEY) {
     connection.write("Move: up");
-  } else if (data === 'a') {
+  } else if (data === MOVE_LEFT_KEY) {
     connection.write("Move: left");
-  } else if (data === 's') {
+  } else if (data === MOVE_DOWN_KEY) {
     connection.write("Move: down");
-  } else if (data === 'd') {
+  } else if (data === MOVE_RIGHT_KEY) {
     connection.write("Move: right");
-  } else if (data === 'h') {
+  } else if (data === HELLO_KEY) {
     connection.write("Say: Hello!");
-  } else if (data === 'b') {
+  } else if (data === BYE_KEY) {
     connection.write("Say: Bye!");
   }
 };
